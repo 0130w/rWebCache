@@ -7,13 +7,15 @@ A simple Web Cache written from scratch in rust.
 
 ## Attach me
 
-Ask me freely if you have any advices : <lovenvibest@gmail.com>
+Ask me freely if you have any advice : <lovenvibest@gmail.com>
 
 
 ## Progress
 
-* [ ] Build frame
-* [ ] 
+* [x] Build basic project frame
+* [ ] Implement main function
+* [ ] Complete modules
+* [ ] Add documention
 
 ## Brief introduction
 
