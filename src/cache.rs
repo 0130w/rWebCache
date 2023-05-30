@@ -5,28 +5,28 @@ pub struct Cache {
 }
 
 impl Cache {
-    fn init(cache_size: u32) -> Cache {
+    pub fn init(cache_size: u32) -> Cache {
         Cache {
             cache_size
         }
     }
 
-    fn bind(&self, port: String) -> TcpListener {
-        TcpListener::bind(port.as_str()).unwrap()
+    pub fn bind(&self, addr: String) -> TcpListener {
+        TcpListener::bind(addr.as_str()).unwrap()
     }
 
-    fn listen(&self, listener: TcpListener) {
+    pub fn listen(&self, listener: TcpListener) {
         for stream in listener.incoming() {
             let stream = stream.unwrap();
             self.handle_stream(stream)
         }
     }
 
-    fn handle_stream(&self, stream: TcpStream) {
+    pub fn handle_stream(&self, stream: TcpStream) {
         
     }
 
-    fn check_status(&self, buf: BufReader<&TcpStream>) -> bool{
+    pub fn check_status(&self, buf: BufReader<&TcpStream>) -> bool{
         let status_line = buf.lines().next().unwrap().unwrap();
         if status_line == "GET / HTTP/1.1" {
             return true;

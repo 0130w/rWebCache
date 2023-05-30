@@ -6,34 +6,65 @@ pub struct Server {
 }
 
 impl Server {
-    fn init(server_id: u32) -> Self{
+    /**
+     * ```shell
+     * Create a server using server_id with default addr "0.0.0.0"
+     * ```
+     *  */ 
+    pub fn init(server_id: u32) -> Self{
         Server { 
             server_id, 
             addr: "0.0.0.0".to_string() 
         }
     }
 
-    fn get_id(&self) -> u32 {
+    /**
+     * ```shell
+     * get server itself's id
+     * ```
+     */
+    pub fn get_id(&self) -> u32 {
         self.server_id
     }
 
-    fn bind(&mut self, addr: String) -> TcpListener{
+    /**
+     * ```shell
+     * bind server to an IP address
+     * ```
+     */
+    pub fn bind(&mut self, addr: String) -> TcpListener{
         self.addr = addr;
         TcpListener::bind(&self.addr.as_str()).unwrap()
     }
 
-    fn listen(&self, listener: TcpListener) {
+    /**
+     * ```shell
+     * start to TCP listen
+     * use after bind function
+     * ```
+     */
+    pub fn listen(&self, listener: TcpListener) {
         for stream in listener.incoming() {
             let stream = stream.unwrap();
             self.handle_stream(stream);
         }
     }
 
-    fn handle_stream(&self, stream: TcpStream) {
+    /**
+     * ```shell
+     * handle stream from web cache
+     * ```
+     */
+    pub fn handle_stream(&self, stream: TcpStream) {
         // todo!
     }
 
-    fn write(&self) {
+    /**
+     * ```shell
+     * write contents back to web cache
+     * ```
+     */
+    pub fn write(&self) {
         
     }
 
