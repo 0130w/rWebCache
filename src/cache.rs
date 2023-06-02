@@ -1,4 +1,4 @@
-use std::{net::{TcpListener, TcpStream}, io::{BufReader, BufRead}};
+use std::{net::{TcpListener, TcpStream}, io::{BufReader, BufRead}, fmt::format};
 
 pub struct Cache {
     cache_size: u32,
@@ -22,8 +22,11 @@ impl Cache {
         }
     }
 
-    pub fn handle_stream(&self, stream: TcpStream) {
-        
+    pub fn handle_stream(&self, mut stream: TcpStream) {
+        let buf_reader = BufReader::new(&mut stream);
+        let line = buf_reader.lines().next().unwrap().unwrap();
+        let response = format!("{line}");
+        println!("{response}");
     }
 
     pub fn check_status(&self, buf: BufReader<&TcpStream>) -> bool{

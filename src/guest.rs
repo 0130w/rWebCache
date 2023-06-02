@@ -2,14 +2,14 @@ use std::net::{TcpListener, TcpStream};
 
 pub struct Guest {
     guest_id: u32,
-    port: String,
+    addr: String,
 }
 
 impl Guest {
     pub fn init(guest_id: u32) -> Guest {
         Guest {
             guest_id,
-            port: "0.0.0.0".to_string()
+            addr: "0.0.0.0".to_string()
         }
     }
     
@@ -17,9 +17,9 @@ impl Guest {
         self.guest_id
     }
 
-    pub fn bind(&mut self, port: String) -> TcpListener{
-        self.port = port;
-        TcpListener::bind(&self.port.as_str()).unwrap()
+    pub fn bind(&mut self, addr: String) -> TcpListener{
+        self.addr = addr;
+        TcpListener::bind(&self.addr.as_str()).unwrap()
     }
 
     pub fn listen(&self, listener: TcpListener) {
