@@ -13,9 +13,12 @@ Ask me freely if you have any advice : <lovenvibest@gmail.com>
 ## Progress
 
 * [x] Build basic project frame
-* [ ] Implement main function
-* [ ] Complete modules
+* [x] Implement main function
+* [x] Distinguish tcpconnect
+* [x] Complete modules
+* [ ] Add Threadpool
 * [ ] Add documention
+* [ ] Add test
 
 ## Brief introduction
 
