@@ -26,20 +26,23 @@ Ask me freely if you have any advice : <lovenvibest@gmail.com>
 
 Recently, this project is not complete.
 
-## Doc
-
-Thanks to `cargo`, to see the documention of this project, use the following command
-
-```shell
-cargo doc --open
-```
-
 ## Run
 
 This program support two guests by default. If you want to add more guests, just add the corresponding code in `main.rs`
 
 ```shell
+git clone https://github.com/0130w/rWebCache
+cd rWebCache
 cargo run
+```
+
+## Doc
+
+Thanks to `cargo`, to see the documention of this project, use the following command
+
+```shell
+# yourpath/rWebCache/
+cargo doc --open
 ```
 
 ## Basic Logic
