@@ -17,7 +17,7 @@ Ask me freely if you have any advice : <lovenvibest@gmail.com>
 * [x] Distinguish tcpconnect
 * [x] Complete modules
 * [ ] Add Threadpool
-* [ ] Add documention
+* [x] Add documention
 * [ ] Add test
 
 ## Brief introduction
@@ -30,6 +30,14 @@ Thanks to `cargo`, to see the documention of this project, use the following com
 
 ```shell
 cargo doc --open
+```
+
+## Run
+
+This program support two guests by default. If you want to add more guests, just add the corresponding code in `main.rs`
+
+```shell
+cargo run
 ```
 
 ## Basic Logic

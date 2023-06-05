@@ -1,3 +1,7 @@
+/*!
+ * server module contains `Server` structure and some functions that relate to Server
+ */
+
 use std::{net::{TcpListener, TcpStream}, io::{BufReader, BufRead, Write}, collections::HashMap};
 
 pub struct Server {
@@ -8,11 +12,7 @@ pub struct Server {
 }
 
 impl Server {
-    /**
-     * ```shell
-     * Create a server using server_id with default addr "0.0.0.0"
-     * ```
-     *  */ 
+    /// Create a server using server_id with default addr "0.0.0.0"
     pub fn init(server_id: u32) -> Self{
         Server { 
             device_type: "Server".to_string(),
@@ -22,38 +22,31 @@ impl Server {
         }
     }
 
+    ///Get the type of server
     pub fn get_device_type(&self) -> &String {
         &self.device_type
     }
 
-    /**
-     * ```shell
-     * get server itself's id
-     * ```
-     */
+    /// return server itself's id
     pub fn get_id(&self) -> u32 {
         self.server_id
     }
 
+    /// Insert a <key, value> pair to server
     pub fn insert(&mut self, key: String, value: String) {
         self.storage.insert(key, value);
     }
 
-    /**
-     * ```shell
-     * bind server to an IP address
-     * ```
-     */
+    /// bind server to an IP address
     pub fn bind(&mut self, addr: String) -> TcpListener{
         self.addr = addr;
         TcpListener::bind(&self.addr.as_str()).unwrap()
     }
 
     /**
-     * ```shell
      * start to TCP listen
      * use after bind function
-     * ```
+     * currently not used
      */
     pub fn listen(&self, listener: TcpListener) {
         for stream in listener.incoming() {
@@ -62,11 +55,7 @@ impl Server {
         }
     }
 
-    /**
-     * ```shell
-     * handle stream from web cache
-     * ```
-     */
+    ///handle stream from web cache
     pub fn handle_stream(&self, mut stream: TcpStream) {
         //todo!
         let buf_reader = BufReader::new(&mut stream);
@@ -85,14 +74,4 @@ impl Server {
             }
         }
     }
-
-    /**
-     * ```shell
-     * write contents back to web cache
-     * ```
-     */
-    pub fn write(&self) {
-        
-    }
-
 }
